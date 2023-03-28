@@ -1,6 +1,7 @@
 require("chromedriver");
 require('dotenv').config();
 const { Builder, By, Key, until, Select } = require("selenium-webdriver");
+const chrome = require('selenium-webdriver/chrome');
 var assert = require("chai").assert;
 var expect = require("chai").expect;
 let fs = require('fs');
@@ -36,6 +37,9 @@ describe("Scenario 1", function () {
                 // Select myNortheasternLogin Based on class
                 await driver.findElement(By.className('idp')).click();
 
+                // wait until username is located
+                await driver.wait(until.elementLocated(By.id('username')),20000);
+
                 // Input username from env file
                 await driver.findElement(By.id('username')).sendKeys(process.env.username);
                 // Input password from env file
@@ -67,7 +71,7 @@ describe("Scenario 1", function () {
                 await driver.findElement(By.id('idSIButton9')).click();
 
                 // a dialog with let's go will appear once we login in new browser window, waiting for it to be located
-                await driver.wait(until.elementLocated(By.className("ms-Button ms-Button--default button_bde9cc16 root-653")),20000);
+                await driver.wait(until.elementLocated(By.xpath('*//button[@aria-describedby="welcomeModalDescription"]')),20000);
 
                 //Take Screenshot
                 let encodedString4 = await driver.takeScreenshot();
@@ -75,7 +79,7 @@ describe("Scenario 1", function () {
                 await fs.writeFileSync('./Scenario1/image4.png', encodedString4, 'base64');
 
                 // clicking the let's go button
-                await driver.findElement(By.className('ms-Button ms-Button--default button_bde9cc16 root-653')).click();
+                await driver.findElement(By.xpath('*//button[@aria-describedby="welcomeModalDescription"]')).click();
 
                 // page is loaded, so switching to resources by xPath
                 await driver.findElement(By.xpath("//*[text()='Resources']")).click();

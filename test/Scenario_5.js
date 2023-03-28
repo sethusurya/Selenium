@@ -34,8 +34,8 @@ describe("Scenario 5", function () {
                 await driver.findElement(By.name('_eventId_proceed')).click();
                 await driver.wait(until.elementLocated(By.id("idSIButton9")),10000);
                 await driver.findElement(By.id('idSIButton9')).click();
-                await driver.wait(until.elementLocated(By.className("ms-Button ms-Button--default button_bde9cc16 root-653")),10000);
-                await driver.findElement(By.className('ms-Button ms-Button--default button_bde9cc16 root-653')).click();
+                await driver.wait(until.elementLocated(By.xpath('*//button[@aria-describedby="welcomeModalDescription"]')),20000);
+                await driver.findElement(By.xpath('*//button[@aria-describedby="welcomeModalDescription"]')).click();
                 await driver.findElement(By.xpath("//*[text()='Resources']")).click();
                 await driver.wait(until.elementLocated(By.className("categoryNavItemWrapper_5ebd5061")),10000)
                 // Similar to Scenario_1 ***** End *******
