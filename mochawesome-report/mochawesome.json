@@ -5,9 +5,9 @@
     "passes": 6,
     "pending": 0,
     "failures": 0,
-    "start": "2023-03-28T09:13:54.023Z",
-    "end": "2023-03-28T09:19:40.210Z",
-    "duration": 346187,
+    "start": "2023-03-28T23:14:03.978Z",
+    "end": "2023-03-28T23:20:46.651Z",
+    "duration": 402673,
     "testsRegistered": 6,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "9af70913-3eb7-438d-8d62-47e077e2ac1d",
+      "uuid": "03a36d4b-46e7-4d4f-b532-d30ef09d1f28",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "921d17a3-a29d-41e6-a441-89b8669954c3",
+          "uuid": "dee0cda3-3c14-4024-800f-dbe0d5bf5d37",
           "title": "Scenario 1",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_1.js",
           "file": "/test/Scenario_1.js",
@@ -38,7 +38,7 @@
               "title": "Open Transcript from student hub",
               "fullTitle": "Scenario 1 Open Transcript from student hub",
               "timedOut": false,
-              "duration": 55369,
+              "duration": 64861,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // open the web page\n      await driver.get('https://me.northeastern.edu');\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image1.png', encodedString, 'base64');\n      // Select myNortheasternLogin Based on class\n      await driver.findElement(By.className('idp')).click();\n      // wait until username is located\n      await driver.wait(until.elementLocated(By.id('username')),20000);\n      // Input username from env file\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      // Input password from env file\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image2.png', encodedString2, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Click on login button\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      \n      // Save login for future button, Wait for it to be located\n      await driver.wait(until.elementLocated(By.id(\"idSIButton9\")),20000)\n      \n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image3.png', encodedString3, 'base64');\n      // click on the button once visible\n      await driver.findElement(By.id('idSIButton9')).click();\n      // a dialog with let's go will appear once we login in new browser window, waiting for it to be located\n      await driver.wait(until.elementLocated(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')),20000);\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image4.png', encodedString4, 'base64');\n      // clicking the let's go button\n      await driver.findElement(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')).click();\n      // page is loaded, so switching to resources by xPath\n      await driver.findElement(By.xpath(\"//*[text()='Resources']\")).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      // waiting the first item with the below class name\n      await driver.wait(until.elementLocated(By.className(\"categoryNavItemWrapper_5ebd5061\")));\n      // clicking on first item with the below class name as it is present in first position\n      await driver.findElement(By.xpath('//*[text()=\"Academics, Classes & Registration\"]')).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString5 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image5.png', encodedString5, 'base64');\n\n      // finding element My Transcript and clicking it\n      await driver.findElement(By.xpath(\"//*[text()='My Transcript']\")).click();\n      // Get all window handles and switch to latest one\n      let myTabs = await driver.getAllWindowHandles();\n      // switching to latest one\n      await driver.switchTo().window(myTabs[1]);\n      // sleep for 5 seconds\n      await driver.sleep(5000);\n      \n      // Selecting the Graduate level\n      await driver.wait(until.elementLocated(By.name('levl')),10000);\n      const selectElement = await driver.findElement(By.name('levl'));\n      const select = new Select(selectElement)\n      await select.selectByValue('GR')\n      // Giving 3 seconds gap\n      await driver.sleep(3000);\n      \n      //Take Screenshot\n      let encodedString6 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image6.png', encodedString6, 'base64');\n      // selecting Audit transcript\n      await driver.wait(until.elementLocated(By.name('tprt')),10000);\n      const selectElement2 = await driver.findElement(By.name('tprt'));\n      const select2 = new Select(selectElement2)\n      await select2.selectByValue('AUDI')\n      await driver.sleep(3000);\n      // Locate submit button\n      await driver.wait(until.elementLocated(By.xpath(\"*//input[@value='Submit']\")),10000);\n      // click submit button\n      await driver.findElement(By.xpath(\"*//input[@value='Submit']\")).click();\n      // wait 5 seconds\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString7 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario1/image7.png', encodedString7, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // checking the elements in the page matching text \"Academic Transcript\"\n      let myElements = await driver.findElements(By.xpath('//*[text()=\"Academic Transcript\"]'));\n      // If there are any, then confirming our test is passed\n      expect(myElements.length).to.greaterThanOrEqual(1)\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "a5b43bc1-6b1e-4716-aa49-f34c9fca4a8c",
-              "parentUUID": "921d17a3-a29d-41e6-a441-89b8669954c3",
+              "uuid": "26f8c0b8-f24f-4c35-a54c-53be1d9f6d02",
+              "parentUUID": "dee0cda3-3c14-4024-800f-dbe0d5bf5d37",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a5b43bc1-6b1e-4716-aa49-f34c9fca4a8c"
+            "26f8c0b8-f24f-4c35-a54c-53be1d9f6d02"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 55369,
+          "duration": 64861,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "fb6d53af-4e43-4cd1-b082-d3205a713f0e",
+          "uuid": "f54486c1-2cb3-4ef8-8f6a-e7ebf930368d",
           "title": "Scenario 2",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_2.js",
           "file": "/test/Scenario_2.js",
@@ -77,7 +77,7 @@
               "title": "Add a To-Do task for yourself",
               "fullTitle": "Scenario 2 Add a To-Do task for yourself",
               "timedOut": false,
-              "duration": 45335,
+              "duration": 52602,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -86,26 +86,26 @@
               "context": null,
               "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // Open canvas URL\n      await driver.get('https://canvas.northeastern.edu');\n      // wait 5 sec\n      await driver.sleep(5000);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image1.png', encodedString, 'base64');\n      // Log in to canvas button click\n      await driver.findElement(By.linkText('Log in to Canvas')).click();\n      // wait until username is located\n      await driver.wait(until.elementLocated(By.id('username')),10000);\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image2.png', encodedString2, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Click on login button\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      // Give time for duo authentication, timeout if not done in 30 Sec\n      // Wait until Calendar item is located\n      await driver.wait(until.elementLocated(By.id(\"global_nav_calendar_link\")),30000);\n      await driver.findElement(By.id('global_nav_calendar_link')).click();\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image3.png', encodedString3, 'base64');\n      // wait 3 seconds\n      await driver.sleep(3000);\n      // Wait until new event link is visible\n      await driver.wait(until.elementLocated(By.id(\"create_new_event_link\")),10000)\n      // Click on new Event link\n      await driver.findElement(By.id('create_new_event_link')).click();\n      // wait until modal is opened and located\n      await driver.wait(until.elementLocated(By.className(\"ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable\")),10000);\n      let container = await driver.findElement(By.className('ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable'));\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image4.png', encodedString4, 'base64');\n      // wait 3 seconds\n      await driver.sleep(3000);\n      // **********************************\n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"#edit_planner_note_form_holder\"]')),10000);\n      let elements = await driver.findElements(By.xpath('//a[@href=\"#edit_planner_note_form_holder\"]'));\n      await elements[elements.length - 1].click();\n      // **********************************\n      // input title\n      await container.findElement(By.id('planner_note_title')).sendKeys(\"MyCustomTodo\");\n      await container.findElement(By.id('details_textarea')).sendKeys(\"selenium testing\");\n      // await container.findElement(By.xpath('//input[@placeholder=\"Input Event Title...\"]')).sendKeys('MyCustomEvent');\n      // wait  3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString5 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image5.png', encodedString5, 'base64');\n      // wait  3 sec\n      await driver.sleep(3000);\n      // Click Submit // there are 2 submit buttons, for second submit we are using this\n      mySubmits = await container.findElements(By.xpath('//button[@type=\"submit\"]'));\n      await mySubmits[mySubmits.length -1].click()\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString6 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario2/image6.png', encodedString6, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "c680d6ed-6459-4df6-83a2-027b34877c35",
-              "parentUUID": "fb6d53af-4e43-4cd1-b082-d3205a713f0e",
+              "uuid": "ba13d015-accd-4c90-b5ce-088a03628253",
+              "parentUUID": "f54486c1-2cb3-4ef8-8f6a-e7ebf930368d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "c680d6ed-6459-4df6-83a2-027b34877c35"
+            "ba13d015-accd-4c90-b5ce-088a03628253"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 45335,
+          "duration": 52602,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "fc29c510-fcd4-4070-8068-deeeda7467a0",
+          "uuid": "54176496-8fd1-4f5e-80f4-1b6e6da50e8b",
           "title": "Scenario 3",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_3.js",
           "file": "/test/Scenario_3.js",
@@ -116,7 +116,7 @@
               "title": "Download a classroom guide",
               "fullTitle": "Scenario 3 Download a classroom guide",
               "timedOut": false,
-              "duration": 32135,
+              "duration": 35600,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -125,26 +125,26 @@
               "context": null,
               "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // Go to the given url\n      await driver.get('https://service.northeastern.edu/tech?id=classrooms');\n      // Wait until username is located\n      await driver.wait(until.elementLocated(By.id('username')),10000);\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario3/image1.png', encodedString, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // click the login button\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      // wait until list-group-item className is visible\n      await driver.wait(until.elementLocated(By.className(\"list-group-item\")),50000);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario3/image2.png', encodedString2, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      \n      await driver.findElement(By.xpath(\"//*[text()='007 Behrakis Health Sciences Center']\")).click();\n      \n      \n      await driver.wait(until.elementLocated(By.css(\"a[href='https://nuflex.northeastern.edu/wp-content/uploads/2020/11/Hybrid_Nuflex_Classroom.pdf']\")),10000);\n      \n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario3/image3.png', encodedString3, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // click on the available href link\n      await driver.findElement(By.css(\"a[href='https://nuflex.northeastern.edu/wp-content/uploads/2020/11/Hybrid_Nuflex_Classroom.pdf']\")).click();\n      myTabs = await driver.getAllWindowHandles();\n      await driver.switchTo().window(myTabs[1]); // switching to pdf viewer tab\n      await driver.wait(until.urlIs('https://nuflex.northeastern.edu/wp-content/uploads/2020/11/Hybrid_Nuflex_Classroom.pdf'),10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario3/image4.png', encodedString4, 'base64');\n      // Wait 3 sec\n      await driver.sleep(3000)\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "f6077e93-1160-4fc3-81b3-840abab16ffc",
-              "parentUUID": "fc29c510-fcd4-4070-8068-deeeda7467a0",
+              "uuid": "369b9041-4bc2-49ca-82c7-b8e982094542",
+              "parentUUID": "54176496-8fd1-4f5e-80f4-1b6e6da50e8b",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "f6077e93-1160-4fc3-81b3-840abab16ffc"
+            "369b9041-4bc2-49ca-82c7-b8e982094542"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 32135,
+          "duration": 35600,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "c068f8ee-5941-42cf-927e-dd155c59c1be",
+          "uuid": "ac1da8f6-9944-48a2-806f-ba175189a49d",
           "title": "Scenario 4",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_4.js",
           "file": "/test/Scenario_4.js",
@@ -155,7 +155,7 @@
               "title": "Download a DATASET",
               "fullTitle": "Scenario 4 Download a DATASET",
               "timedOut": false,
-              "duration": 27729,
+              "duration": 36121,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -164,26 +164,26 @@
               "context": null,
               "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // Go to the given url\n      await driver.get('https://onesearch.library.northeastern.edu/discovery/search?vid=01NEU_INST:NU&lang=en');\n      \n      // Wait until a link with given href is visible \n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"https://repository.library.northeastern.edu/\"]')));\n     \n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario4/image1.png', encodedString, 'base64');\n\n      await driver.findElement(By.xpath('//a[@href=\"https://repository.library.northeastern.edu/\"]')).click();\n      await driver.sleep(5000);\n      let myList = await driver.getAllWindowHandles();\n      // console.log('myList', myList);\n      await driver.sleep(5000);\n      await driver.switchTo().window(myList[1]);\n      \n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario4/image2.png', encodedString2, 'base64');\n      await driver.findElement(By.xpath('//a[@data-original-title=\"High value datasets, such as statistical datasets and research datasets\"]')).click();\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario4/image3.png', encodedString3, 'base64');\n      await driver.sleep(3000);\n      await driver.findElement(By.xpath('//a[@title=\"Zip File\"]')).click();\n      await driver.sleep(3000);\n      \n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario4/image4.png', encodedString4, 'base64');\n      await driver.sleep(3000);\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "a12b13fb-11d2-43ee-b47c-16bdd572a65c",
-              "parentUUID": "c068f8ee-5941-42cf-927e-dd155c59c1be",
+              "uuid": "d829387d-d49f-43ac-8534-5f488efd7cf3",
+              "parentUUID": "ac1da8f6-9944-48a2-806f-ba175189a49d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "a12b13fb-11d2-43ee-b47c-16bdd572a65c"
+            "d829387d-d49f-43ac-8534-5f488efd7cf3"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 27729,
+          "duration": 36121,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "6ad3a0ae-6a25-4085-b59c-71478fb8f098",
+          "uuid": "9a69f068-d3b5-433c-b65e-77b255d63b76",
           "title": "Scenario 5",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_5.js",
           "file": "/test/Scenario_5.js",
@@ -194,35 +194,35 @@
               "title": "Job Alert alternative",
               "fullTitle": "Scenario 5 Job Alert alternative",
               "timedOut": false,
-              "duration": 131153,
+              "duration": 147892,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // Go to the given url\n      // Similar to Scenario_1 ***** Start *******\n      await driver.get('https://me.northeastern.edu');\n      await driver.wait(until.elementLocated(By.className('idp')),10000);\n      await driver.findElement(By.className('idp')).click();\n      await driver.wait(until.elementLocated(By.id('username')),10000);\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      await driver.wait(until.elementLocated(By.id(\"idSIButton9\")),10000);\n      await driver.findElement(By.id('idSIButton9')).click();\n      await driver.wait(until.elementLocated(By.className(\"ms-Button ms-Button--default button_bde9cc16 root-653\")),10000);\n      await driver.findElement(By.className('ms-Button ms-Button--default button_bde9cc16 root-653')).click();\n      await driver.findElement(By.xpath(\"//*[text()='Resources']\")).click();\n      await driver.wait(until.elementLocated(By.className(\"categoryNavItemWrapper_5ebd5061\")),10000)\n      // Similar to Scenario_1 ***** End *******\n\n      // click on careers and Employment\n      await driver.findElement(By.xpath('//*[text()=\"Careers & Employment\"]')).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image1.png', encodedString, 'base64');\n      await driver.sleep(3000);\n      // Find Link to campus Employment & Work-Study\n      await driver.findElement(By.xpath('//a[@data-gtm-sh-resources-link=\"Campus Employment & Work-Study\"]')).click();\n      let myWindowHandles = await driver.getAllWindowHandles();\n      await driver.switchTo().window(myWindowHandles[1]);\n      // Wait until Find a Job is located\n      await driver.wait(until.elementLocated(By.linkText('Find a Job')), 10000);\n      // Wait  3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image2.png', encodedString2, 'base64');\n      // Click on Find a Job\n      await driver.findElement(By.linkText('Find a Job')).click();\n      // Wait until Text below is located\n      await driver.wait(until.elementLocated(By.linkText('Find an On-Campus or Work-Study Job')), 10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image3.png', encodedString3, 'base64');\n      // wait 1 sec\n      await driver.sleep(1000);\n      await driver.findElement(By.linkText('Find an On-Campus or Work-Study Job')).click();\n      await driver.wait(until.elementLocated(By.xpath('//a[@data-automation-id=\"linkButton\"]')),10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image4.png', encodedString4, 'base64');\n      // wait 1 sec\n      await driver.sleep(1000);\n      await driver.findElement(By.xpath('//a[@data-automation-id=\"linkButton\"]')).click();\n  \n      await driver.wait(until.elementLocated(By.className('wdappchrome-ac')),10000);\n      // wait 3 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString5 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image5.png', encodedString5, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      await driver.findElement(By.className('wdappchrome-ac')).click();\n      // Wait to locate Jobs and Career Hub\n      await driver.wait(until.elementLocated(By.xpath('//a[@aria-label=\"Jobs and Career Hub\"]')),10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Click on Jobs and Career Hub\n      await driver.findElement(By.xpath('//a[@aria-label=\"Jobs and Career Hub\"]')).click();\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.className('WJA2 WL41 WHA2')),10000);\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString6 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image6.png', encodedString6, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('WJA2 WL41 WHA2')).click();\n      await driver.sleep(2000);\n  \n      // for office of student employment link\n      await driver.wait(until.elementLocated(By.className('WAMR')),10000);\n      let myElements = await driver.findElements(By.className('WAMR'));\n      // Click on the 3rd Link available now\n      await myElements[2].click();\n      // Sleep for 3 sec\n      await driver.sleep(3000);\n  \n      let myWindowHandles2 = await driver.getAllWindowHandles()\n      // Switch to 3rd Tab which will be open by now\n      await driver.switchTo().window(myWindowHandles2[2]);\n  \n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"#\"]')),10000);\n      await driver.findElement(By.xpath('//a[@href=\"#\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString7 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image7.png', encodedString7, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n  \n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"/jobX_myjobmail.aspx\"]')),10000);\n      await driver.findElement(By.xpath('//a[@href=\"/jobX_myjobmail.aspx\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString8 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image8.png', encodedString8, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      \n      // Wait until username and password is located!\n      await driver.wait(until.elementLocated(By.id('Skin_ctl11_LoginNameText')),10000);\n      await driver.findElement(By.id('Skin_ctl11_LoginNameText')).sendKeys(process.env.username);\n      await driver.findElement(By.id('Skin_ctl11_LoginPasswordText')).sendKeys(process.env.password);\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString9 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image9.png', encodedString9, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n  \n      // Click Login\n      await driver.findElement(By.name('Skin$ctl11$ctl14')).click();\n  \n      await driver.wait(until.elementLocated(By.id('Skin_body_JobMailShell_AddNew_8')),10000);\n      await driver.findElement(By.id('Skin_body_JobMailShell_AddNew_8')).click();\n  \n      await driver.wait(until.elementLocated(By.className('GraphicShell-Body1-Even something-button pull-right')),10000);\n      let inputs = await driver.findElements(By.className('GraphicShell-Body1-Even something-button pull-right'));\n  \n      // employers\n      await inputs[inputs.length - 3].click();\n      \n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString10 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image10.png', encodedString10, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.sleep(2000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString11 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image11.png', encodedString11, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n  \n      //category\n      await inputs[inputs.length - 2].click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString12 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image12.png', encodedString12, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString13 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image13.png', encodedString13, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n      //Time frame\n      await inputs[inputs.length - 1].click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString14 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image14.png', encodedString14, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString15 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image15.png', encodedString15, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n      \n      await driver.wait(until.elementLocated(By.name('Skin$body$ctl02')),10000);\n      await driver.findElement(By.name('Skin$body$ctl02')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString16 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image16.png', encodedString16, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
+              "code": "let driver = await new Builder().forBrowser('chrome').build();\n  driver.manage().window().maximize();\n  try {\n      // Go to the given url\n      // Similar to Scenario_1 ***** Start *******\n      await driver.get('https://me.northeastern.edu');\n      await driver.wait(until.elementLocated(By.className('idp')),10000);\n      await driver.findElement(By.className('idp')).click();\n      await driver.wait(until.elementLocated(By.id('username')),10000);\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      await driver.wait(until.elementLocated(By.id(\"idSIButton9\")),10000);\n      await driver.findElement(By.id('idSIButton9')).click();\n      await driver.wait(until.elementLocated(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')),20000);\n      await driver.findElement(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')).click();\n      await driver.findElement(By.xpath(\"//*[text()='Resources']\")).click();\n      await driver.wait(until.elementLocated(By.className(\"categoryNavItemWrapper_5ebd5061\")),10000)\n      // Similar to Scenario_1 ***** End *******\n\n      // click on careers and Employment\n      await driver.findElement(By.xpath('//*[text()=\"Careers & Employment\"]')).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image1.png', encodedString, 'base64');\n      await driver.sleep(3000);\n      // Find Link to campus Employment & Work-Study\n      await driver.findElement(By.xpath('//a[@data-gtm-sh-resources-link=\"Campus Employment & Work-Study\"]')).click();\n      let myWindowHandles = await driver.getAllWindowHandles();\n      await driver.switchTo().window(myWindowHandles[1]);\n      // Wait until Find a Job is located\n      await driver.wait(until.elementLocated(By.linkText('Find a Job')), 10000);\n      // Wait  3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image2.png', encodedString2, 'base64');\n      // Click on Find a Job\n      await driver.findElement(By.linkText('Find a Job')).click();\n      // Wait until Text below is located\n      await driver.wait(until.elementLocated(By.linkText('Find an On-Campus or Work-Study Job')), 10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image3.png', encodedString3, 'base64');\n      // wait 1 sec\n      await driver.sleep(1000);\n      await driver.findElement(By.linkText('Find an On-Campus or Work-Study Job')).click();\n      await driver.wait(until.elementLocated(By.xpath('//a[@data-automation-id=\"linkButton\"]')),10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image4.png', encodedString4, 'base64');\n      // wait 1 sec\n      await driver.sleep(1000);\n      await driver.findElement(By.xpath('//a[@data-automation-id=\"linkButton\"]')).click();\n  \n      await driver.wait(until.elementLocated(By.className('wdappchrome-ac')),10000);\n      // wait 3 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString5 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image5.png', encodedString5, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      await driver.findElement(By.className('wdappchrome-ac')).click();\n      // Wait to locate Jobs and Career Hub\n      await driver.wait(until.elementLocated(By.xpath('//a[@aria-label=\"Jobs and Career Hub\"]')),10000);\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Click on Jobs and Career Hub\n      await driver.findElement(By.xpath('//a[@aria-label=\"Jobs and Career Hub\"]')).click();\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.className('WJA2 WL41 WHA2')),10000);\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString6 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image6.png', encodedString6, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('WJA2 WL41 WHA2')).click();\n      await driver.sleep(2000);\n  \n      // for office of student employment link\n      await driver.wait(until.elementLocated(By.className('WAMR')),10000);\n      let myElements = await driver.findElements(By.className('WAMR'));\n      // Click on the 3rd Link available now\n      await myElements[2].click();\n      // Sleep for 3 sec\n      await driver.sleep(3000);\n  \n      let myWindowHandles2 = await driver.getAllWindowHandles()\n      // Switch to 3rd Tab which will be open by now\n      await driver.switchTo().window(myWindowHandles2[2]);\n  \n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"#\"]')),10000);\n      await driver.findElement(By.xpath('//a[@href=\"#\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString7 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image7.png', encodedString7, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n  \n      await driver.wait(until.elementLocated(By.xpath('//a[@href=\"/jobX_myjobmail.aspx\"]')),10000);\n      await driver.findElement(By.xpath('//a[@href=\"/jobX_myjobmail.aspx\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString8 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image8.png', encodedString8, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      \n      // Wait until username and password is located!\n      await driver.wait(until.elementLocated(By.id('Skin_ctl11_LoginNameText')),10000);\n      await driver.findElement(By.id('Skin_ctl11_LoginNameText')).sendKeys(process.env.username);\n      await driver.findElement(By.id('Skin_ctl11_LoginPasswordText')).sendKeys(process.env.password);\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString9 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image9.png', encodedString9, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n  \n      // Click Login\n      await driver.findElement(By.name('Skin$ctl11$ctl14')).click();\n  \n      await driver.wait(until.elementLocated(By.id('Skin_body_JobMailShell_AddNew_8')),10000);\n      await driver.findElement(By.id('Skin_body_JobMailShell_AddNew_8')).click();\n  \n      await driver.wait(until.elementLocated(By.className('GraphicShell-Body1-Even something-button pull-right')),10000);\n      let inputs = await driver.findElements(By.className('GraphicShell-Body1-Even something-button pull-right'));\n  \n      // employers\n      await inputs[inputs.length - 3].click();\n      \n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString10 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image10.png', encodedString10, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.sleep(2000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString11 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image11.png', encodedString11, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n  \n      //category\n      await inputs[inputs.length - 2].click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString12 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image12.png', encodedString12, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString13 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image13.png', encodedString13, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n      //Time frame\n      await inputs[inputs.length - 1].click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString14 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image14.png', encodedString14, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.wait(until.elementLocated(By.xpath('//a[@onclick=\"AddAll();\"]')),10000);\n      await driver.findElement(By.xpath('//a[@onclick=\"AddAll();\"]')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString15 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image15.png', encodedString15, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      await driver.findElement(By.className('btn-Link something-button')).click();\n      await driver.sleep(3000);\n      \n      await driver.wait(until.elementLocated(By.name('Skin$body$ctl02')),10000);\n      await driver.findElement(By.name('Skin$body$ctl02')).click();\n      // wait 2 sec\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString16 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario5/image16.png', encodedString16, 'base64');\n      // wait 2 sec\n      await driver.sleep(2000);\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "44b8c797-071e-473b-a5ad-59f547aec692",
-              "parentUUID": "6ad3a0ae-6a25-4085-b59c-71478fb8f098",
+              "uuid": "24910927-a4fb-41f9-9a05-326b4b2f83da",
+              "parentUUID": "9a69f068-d3b5-433c-b65e-77b255d63b76",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "44b8c797-071e-473b-a5ad-59f547aec692"
+            "24910927-a4fb-41f9-9a05-326b4b2f83da"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 131153,
+          "duration": 147892,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
         },
         {
-          "uuid": "9989491c-e487-4c1e-8fc6-464d4c5d92f8",
+          "uuid": "cb3ebd5f-1b3b-4f27-964e-7358f335f387",
           "title": "Scenario 6",
           "fullFile": "/Users/sethu/Documents/personal/selenium/test/Scenario_6.js",
           "file": "/test/Scenario_6.js",
@@ -233,7 +233,7 @@
               "title": "Replicate Scenario 1 in headless mode and save pdf",
               "fullTitle": "Scenario 6 Replicate Scenario 1 in headless mode and save pdf",
               "timedOut": false,
-              "duration": 54455,
+              "duration": 65588,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -242,20 +242,20 @@
               "context": null,
               "code": "let driver = await new Builder().forBrowser('chrome').setChromeOptions(opts.headless()).build();\n  driver.manage().window().maximize();\n  try {\n      // open the web page\n      await driver.get('https://me.northeastern.edu');\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image1.png', encodedString, 'base64');\n      // Select myNortheasternLogin Based on class\n      await driver.findElement(By.className('idp')).click();\n      await driver.wait(until.elementLocated(By.id('username')),20000);\n      // Input username from env file\n      await driver.findElement(By.id('username')).sendKeys(process.env.username);\n      // Input password from env file\n      await driver.findElement(By.id('password')).sendKeys(process.env.password);\n      //Take Screenshot\n      let encodedString2 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image2.png', encodedString2, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Click on login button\n      await driver.findElement(By.name('_eventId_proceed')).click();\n      \n      // Save login for future button, Wait for it to be located\n      await driver.wait(until.elementLocated(By.id(\"idSIButton9\")),20000)\n      \n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString3 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image3.png', encodedString3, 'base64');\n      // click on the button once visible\n      await driver.findElement(By.id('idSIButton9')).click();\n      // a dialog with let's go will appear once we login in new browser window, waiting for it to be located\n      // await driver.wait(until.elementLocated(By.className(\"ms-Button ms-Button--default button_bde9cc16 root-653\")),20000);\n      await driver.wait(until.elementLocated(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')),20000);\n      //Take Screenshot\n      let encodedString4 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image4.png', encodedString4, 'base64');\n      // clicking the let's go button\n      // await driver.findElement(By.className('ms-Button ms-Button--default button_bde9cc16 root-653')).click();\n      await driver.findElement(By.xpath('*//button[@aria-describedby=\"welcomeModalDescription\"]')).click();\n      // page is loaded, so switching to resources by xPath\n      await driver.findElement(By.xpath(\"//*[text()='Resources']\")).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      // waiting the first item with the below class name\n      await driver.wait(until.elementLocated(By.className(\"categoryNavItemWrapper_5ebd5061\")));\n      // clicking on first item with the below class name as it is present in first position\n      await driver.findElement(By.xpath('//*[text()=\"Academics, Classes & Registration\"]')).click();\n      // wait 3 sec\n      await driver.sleep(3000);\n      //Take Screenshot\n      let encodedString5 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image5.png', encodedString5, 'base64');\n\n      // finding element My Transcript and clicking it\n      await driver.findElement(By.xpath(\"//*[text()='My Transcript']\")).click();\n      // Get all window handles and switch to latest one\n      let myTabs = await driver.getAllWindowHandles();\n      // switching to latest one\n      await driver.switchTo().window(myTabs[1]);\n      // sleep for 5 seconds\n      await driver.sleep(5000);\n      \n      // Selecting the Graduate level\n      await driver.wait(until.elementLocated(By.name('levl')),10000);\n      const selectElement = await driver.findElement(By.name('levl'));\n      const select = new Select(selectElement)\n      await select.selectByValue('GR')\n      // Giving 3 seconds gap\n      await driver.sleep(3000);\n      \n      //Take Screenshot\n      let encodedString6 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image6.png', encodedString6, 'base64');\n      // selecting Audit transcript\n      await driver.wait(until.elementLocated(By.name('tprt')),10000);\n      const selectElement2 = await driver.findElement(By.name('tprt'));\n      const select2 = new Select(selectElement2)\n      await select2.selectByValue('AUDI')\n      await driver.sleep(3000);\n      // Locate submit button\n      await driver.wait(until.elementLocated(By.xpath(\"*//input[@value='Submit']\")),10000);\n      // click submit button\n      await driver.findElement(By.xpath(\"*//input[@value='Submit']\")).click();\n      // wait 5 seconds\n      await driver.sleep(2000);\n      //Take Screenshot\n      let encodedString7 = await driver.takeScreenshot();\n      //Save Screenshot\n      await fs.writeFileSync('./Scenario6/image7.png', encodedString7, 'base64');\n      // wait 3 sec\n      await driver.sleep(3000);\n      // Build pdf\n      let base64 = await driver.printPage();\n      await fs.writeFileSync('./Scenario6/Scenario_6.pdf', base64, 'base64');\n\n      // checking the elements in the page matching text \"Academic Transcript\"\n      let myElements = await driver.findElements(By.xpath('//*[text()=\"Academic Transcript\"]'));\n      // If there are any, then confirming our test is passed\n      expect(myElements.length).to.greaterThanOrEqual(1)\n      console.log('Test Success')\n  } finally {\n      // Closing the browser\n      await driver.quit();\n  }",
               "err": {},
-              "uuid": "29fd46a0-58d6-464f-a28d-4518534eb93b",
-              "parentUUID": "9989491c-e487-4c1e-8fc6-464d4c5d92f8",
+              "uuid": "df482c59-b648-416b-a43e-e85549327ed6",
+              "parentUUID": "cb3ebd5f-1b3b-4f27-964e-7358f335f387",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "29fd46a0-58d6-464f-a28d-4518534eb93b"
+            "df482c59-b648-416b-a43e-e85549327ed6"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 54455,
+          "duration": 65588,
           "root": false,
           "rootEmpty": false,
           "_timeout": 0
